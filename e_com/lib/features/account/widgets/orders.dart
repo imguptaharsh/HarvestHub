@@ -1,9 +1,7 @@
 import 'package:e_com/features/account/widgets/single_product.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/loader.dart';
-import '../../../constants/global_variable.dart';
 import '../../../models/order.dart';
 import '../../order_details.dart/order_details.dart';
 import '../services/account_services.dart';

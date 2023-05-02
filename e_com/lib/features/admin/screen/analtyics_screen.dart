@@ -40,7 +40,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
     return earnings == null || totalSales == null
         ? const Loader()
         : Container(
-            color: const Color.fromARGB(255, 252, 250, 235),
+            color: GlobalVariables.mainColor,
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [

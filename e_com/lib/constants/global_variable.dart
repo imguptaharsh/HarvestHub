@@ -21,16 +21,16 @@ class GlobalVariables {
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
     colors: [
-      Color.fromARGB(255, 250, 227, 25),
-      Color.fromARGB(255, 233, 228, 190),
+      Colors.green,
+      Colors.green,
     ],
   );
 
   static const secondaryColor = Colors.green;
-  static const mainColor = Color.fromARGB(255, 250, 227, 25);
+  static const mainColor = Color.fromARGB(255, 239, 252, 225);
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundCOlor = Color(0xffebecee);
-  static const selectedNavBarColor = Color.fromARGB(255, 233, 228, 190);
+  static const selectedNavBarColor = Colors.green;
   static const unselectedNavBarColor = Colors.black87;
 
   // STATIC IMAGES

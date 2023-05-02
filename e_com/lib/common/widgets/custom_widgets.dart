@@ -1,3 +1,4 @@
+import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -16,7 +17,7 @@ class CustomTextField extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Card(
-        color: const Color.fromARGB(255, 244, 237, 180),
+        color: GlobalVariables.mainColor,
         child: TextFormField(
           controller: controller,
           decoration: InputDecoration(

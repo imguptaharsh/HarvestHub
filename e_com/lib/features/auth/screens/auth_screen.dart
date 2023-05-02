@@ -55,7 +55,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 252, 250, 235),
+      backgroundColor: GlobalVariables.mainColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -73,7 +73,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ListTile(
                   tileColor: _auth == Auth.signup
                       ? GlobalVariables.backgroundColor
-                      : const Color.fromARGB(255, 252, 250, 235),
+                      : GlobalVariables.mainColor,
                   title: const Text(
                     'Create Account',
                     style: TextStyle(
@@ -81,7 +81,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   leading: Radio(
-                    activeColor: GlobalVariables.mainColor,
+                    activeColor: GlobalVariables.selectedNavBarColor,
                     value: Auth.signup,
                     groupValue: _auth,
                     onChanged: (Auth? val) {
@@ -121,7 +121,6 @@ class _AuthScreenState extends State<AuthScreen> {
                                 signUpUser();
                               }
                             },
-                            color: GlobalVariables.mainColor,
                           )
                         ],
                       ),
@@ -138,7 +137,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                   ),
                   leading: Radio(
-                    activeColor: GlobalVariables.mainColor,
+                    activeColor: GlobalVariables.selectedNavBarColor,
                     value: Auth.signin,
                     groupValue: _auth,
                     onChanged: (Auth? val) {
@@ -173,7 +172,6 @@ class _AuthScreenState extends State<AuthScreen> {
                                 signInUser();
                               }
                             },
-                            color: GlobalVariables.mainColor,
                           )
                         ],
                       ),

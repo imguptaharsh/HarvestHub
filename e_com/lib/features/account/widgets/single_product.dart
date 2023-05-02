@@ -1,3 +1,4 @@
+import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 
 class SingleProduct extends StatelessWidget {
@@ -14,7 +15,7 @@ class SingleProduct extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: const Color.fromARGB(255, 255, 246, 168),
+          color: GlobalVariables.mainColor,
         ),
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,

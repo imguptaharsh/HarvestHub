@@ -48,7 +48,7 @@ class _PostsScreenState extends State<PostsScreen> {
     return products == null
         ? const Loader()
         : Scaffold(
-            backgroundColor: const Color.fromARGB(255, 252, 250, 235),
+            backgroundColor: GlobalVariables.mainColor,
             body: GridView.builder(
                 itemCount: products!.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
