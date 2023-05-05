@@ -101,30 +101,35 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         body: products == null
             ? const Loader()
-            : Column(
-                children: [
-                  const AddressBox(),
-                  const SizedBox(height: 10),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: products!.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              ProductDetailScreen.routeName,
-                              arguments: products![index],
+            // ignore: unrelated_type_equality_checks
+            : products!.isEmpty
+                ? const Scaffold(
+                    body: Center(child: Text('No Products!')),
+                  )
+                : Column(
+                    children: [
+                      const AddressBox(),
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: products!.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  ProductDetailScreen.routeName,
+                                  arguments: products![index],
+                                );
+                              },
+                              child: SearchedProduct(
+                                product: products![index],
+                              ),
                             );
                           },
-                          child: SearchedProduct(
-                            product: products![index],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ));
+                        ),
+                      ),
+                    ],
+                  ));
   }
 }

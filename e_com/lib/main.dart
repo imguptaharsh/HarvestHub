@@ -36,27 +36,30 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'ReWear',
-        theme: ThemeData(
-          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-          colorScheme: const ColorScheme.light(
-            primary: GlobalVariables.secondaryColor,
-          ),
-          appBarTheme: const AppBarTheme(
-              elevation: 0,
-              // ignore: prefer_const_constructors
-              iconTheme: IconThemeData(
-                color: Colors.black,
-              )),
-          primarySwatch: Colors.blue,
+      debugShowCheckedModeBanner: false,
+      title: 'HarvestHub',
+      theme: ThemeData(
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: const ColorScheme.light(
+          primary: GlobalVariables.secondaryColor,
         ),
-        onGenerateRoute: (settings) => generateRoute(settings),
-        // home: const BottomBar());
-        home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-            ? Provider.of<UserProvider>(context).user.type == 'user'
-                ? const BottomBar()
-                : const AdminScreen()
-            : const AuthScreen());
+        appBarTheme: const AppBarTheme(
+            elevation: 0,
+            // ignore: prefer_const_constructors
+            iconTheme: IconThemeData(
+              color: Colors.black,
+            )),
+        primarySwatch: Colors.blue,
+      ),
+      onGenerateRoute: (settings) => generateRoute(settings),
+      // home: Scaffold(
+      //   body: Tips(),
+      // )
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              ? const BottomBar()
+              : const AdminScreen()
+          : const AuthScreen(),
+    );
   }
 }
