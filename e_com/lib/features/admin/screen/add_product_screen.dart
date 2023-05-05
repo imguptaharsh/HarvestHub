@@ -24,7 +24,7 @@ class _AddProductState extends State<AddProduct> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController quantityController = TextEditingController();
   final AdminServices adminServices = AdminServices();
-  String category = 'Men';
+  String category = 'Fruits';
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
 
@@ -37,7 +37,7 @@ class _AddProductState extends State<AddProduct> {
     quantityController.dispose();
   }
 
-  List<String> productCategories = ['Men', 'Women', 'kids', 'Shoes'];
+  List<String> productCategories = ['Fruits', 'Vegetable', 'Grains', 'Herbs'];
   void sellProduct() {
     if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
       adminServices.sellProduct(

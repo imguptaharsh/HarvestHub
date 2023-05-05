@@ -49,7 +49,7 @@ class AccountScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: const Color.fromARGB(255, 251, 248, 219),
+        color: GlobalVariables.mainColor,
         child: Column(
           children: const [
             BelowAppBar(),

@@ -21,7 +21,27 @@ adminRouter.post("/admin/add-product",admin,async(req,res)=>{
     } catch(e){
         res.status(500).json({error: e.message});
     }
-}); 
+});
+
+
+// adding product
+adminRouter.post("/admin/add-image",admin,async(req,res)=>{
+  try{
+      const{name , description, images, quantity, price, category}=req.body;
+      let product = new Product({
+          name, 
+          description,
+          images,
+          quantity,
+          price,
+          category,
+      });
+      product =await product.save();
+      res.json(product); 
+  } catch(e){
+      res.status(500).json({error: e.message});
+  }
+});
 
 
 // get all your products
@@ -79,19 +99,18 @@ adminRouter.get('/admin/get-products', admin,async(req,res)=>{
         }
       }
       // CATEGORY WISE ORDER FETCHING
-    let menEarnings = await fetchCategoryWiseProduct('Men');
-    let womenEarnings = await fetchCategoryWiseProduct('Women');
-    let kidsEarnings = await fetchCategoryWiseProduct('kids');
-    let shoesEarnings = await fetchCategoryWiseProduct('Shoes');
+    let fruitsEarnings = await fetchCategoryWiseProduct('Fruits');
+    let vegetableEarnings = await fetchCategoryWiseProduct('Vegetable');
+    let grainsEarnings = await fetchCategoryWiseProduct('Grains');
+    let herbsEarnings = await fetchCategoryWiseProduct('Herbs');
     // let fashionEarnings = await fetchCategoryWiseProduct("Fashion");
 
     let earnings = {
       totalEarnings,
-      menEarnings,
-      womenEarnings,
-      kidsEarnings,
-      shoesEarnings,
-      // fashionEarnings,
+      fruitsEarnings,
+      vegetableEarnings,
+      grainsEarnings,
+      herbsEarnings,
     };
 
   
