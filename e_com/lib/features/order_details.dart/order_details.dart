@@ -51,7 +51,7 @@ class _OrderDetailsState extends State<OrderDetails> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 252, 250, 235),
+        backgroundColor: GlobalVariables.mainColor,
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(60),
           child: AppBar(
@@ -83,7 +83,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                             color: Colors.black, size: 23),
                                       )),
                                   filled: true,
-                                  fillColor: Colors.white,
+                                  fillColor:
+                                      GlobalVariables.selectedNavBarColor,
                                   hintText: 'Search..',
                                   hintStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -117,34 +118,6 @@ class _OrderDetailsState extends State<OrderDetails> {
             padding: const EdgeInsets.all(8.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const Text('View order details',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  )),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.black45, width: 1.5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Order Date:      ${DateFormat().format(
-                          DateTime.fromMillisecondsSinceEpoch(
-                              widget.order.orderedAt),
-                        )}'),
-                        Text('Order ID:          ${widget.order.id}'),
-                        Text('Order Total:     ${widget.order.totalPrice} ₹'),
-                      ],
-                    ),
-                  )),
-              const SizedBox(height: 15),
               const Text(
                 'Purchase Details',
                 style: TextStyle(
@@ -157,11 +130,18 @@ class _OrderDetailsState extends State<OrderDetails> {
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
                   decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black38, width: 1.5),
                     borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: Colors.black45,
-                      width: 1.5,
-                    ),
+                    color: Colors.white,
+                    boxShadow: const [
+                      // ignore: prefer_const_constructors
+                      BoxShadow(
+                        color: Colors.black38,
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -213,6 +193,44 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
               ),
               const SizedBox(height: 15),
+              const Text('View order details',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  )),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black38, width: 1.5),
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+                    boxShadow: const [
+                      // ignore: prefer_const_constructors
+                      BoxShadow(
+                        color: Colors.black38,
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Order Date:      ${DateFormat().format(
+                          DateTime.fromMillisecondsSinceEpoch(
+                              widget.order.orderedAt),
+                        )}'),
+                        Text('Order ID:          ${widget.order.id}'),
+                        Text('Order Total:     ${widget.order.totalPrice} ₹'),
+                      ],
+                    ),
+                  )),
+              const SizedBox(height: 15),
               const Text(
                 'Tracking',
                 style: TextStyle(
@@ -220,14 +238,21 @@ class _OrderDetailsState extends State<OrderDetails> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: Colors.black45,
-                    width: 1.5,
-                  ),
+                  border: Border.all(color: Colors.black38, width: 1.5),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  boxShadow: const [
+                    // ignore: prefer_const_constructors
+                    BoxShadow(
+                      color: Colors.black38,
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
                 ),
                 child: Stepper(
                   currentStep: currentStep,
@@ -237,7 +262,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                         text: 'Done',
                         //onTap: () => {},
                         onTap: () => changeOrderStatus(details.currentStep),
-                        color: GlobalVariables.mainColor,
+                        color: GlobalVariables.selectedNavBarColor,
                       );
                     }
                     return const SizedBox();

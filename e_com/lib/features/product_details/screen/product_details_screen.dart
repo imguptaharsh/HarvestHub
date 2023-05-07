@@ -54,19 +54,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     const kTextColor = Color(0xFF535353);
-    Color colorTemp() {
-      if (myRating <= 1) {
-        return const Color.fromARGB(255, 253, 19, 3);
-      } else if (myRating <= 2) {
-        return const Color.fromARGB(255, 220, 72, 9);
-      } else if (myRating <= 3) {
-        return Colors.yellow;
-      } else if (myRating <= 4) {
-        return const Color.fromARGB(255, 209, 250, 3);
-      } else {
-        return const Color.fromARGB(255, 6, 145, 11);
-      }
-    }
 
     double height = MediaQuery.of(context).size.height;
     var padding = MediaQuery.of(context).padding;
@@ -101,13 +88,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                           left: 6,
                                         ),
                                         child: Icon(Icons.search,
-                                            color: Colors.black, size: 23),
+                                            color: Colors.white, size: 23),
                                       )),
                                   filled: true,
-                                  fillColor: Colors.white,
+                                  fillColor:
+                                      const Color.fromARGB(255, 73, 125, 89),
                                   hintText: 'Search..',
                                   hintStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
+                                    color: Colors.white,
                                     fontSize: 17,
                                   ),
                                   contentPadding:
@@ -117,7 +106,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                       Radius.circular(15),
                                     ),
                                     borderSide: BorderSide(
-                                      color: Colors.black38,
+                                      color: Colors.white,
                                       width: 1,
                                     ),
                                   ))))),
@@ -178,6 +167,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               options: CarouselOptions(
                 viewportFraction: 1,
                 height: 250,
+                autoPlay: true,
               ),
             ),
 
@@ -352,8 +342,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               height: 50,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.green,
-                                  backgroundColor: Colors.green,
+                                  foregroundColor:
+                                      const Color.fromARGB(255, 24, 181, 29),
+                                  backgroundColor:
+                                      GlobalVariables.selectedNavBarColor,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18)),
                                 ),
@@ -387,9 +379,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         itemPadding: const EdgeInsets.symmetric(horizontal: 4),
                         itemBuilder: (context, _) => Icon(
                           Icons.star,
-                          color: colorTemp(),
+                          color: Colors.amber.shade700,
                         ),
-                        // onRatingUpdate: (rating) {},
                         onRatingUpdate: (rating) {
                           productDetailsServices.rateProduct(
                             context: context,

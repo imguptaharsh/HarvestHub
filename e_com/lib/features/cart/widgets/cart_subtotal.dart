@@ -13,7 +13,7 @@ class CartSubtotal extends StatelessWidget {
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
         .toList();
     return Container(
-        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(20),
         child: Row(
           children: [
             const Text("Subtotal ",

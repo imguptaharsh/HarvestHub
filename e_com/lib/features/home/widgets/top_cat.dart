@@ -18,13 +18,13 @@ class TopCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.only(top: 10, bottom: 10),
-        color: Color.fromARGB(255, 252, 250, 235),
+        padding: const EdgeInsets.only(top: 10, bottom: 10),
+        color: GlobalVariables.mainColor,
         height: 80,
         child: ListView.builder(
           itemCount: GlobalVariables.categoryImages.length,
           scrollDirection: Axis.horizontal,
-          itemExtent: 95,
+          itemExtent: 105,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () => navigateToCategoryPage(
@@ -36,12 +36,12 @@ class TopCategories extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(0),
+                      // borderRadius: BorderRadius.circular(0),
                       child: Image.asset(
                         GlobalVariables.categoryImages[index]['image']!,
                         fit: BoxFit.cover,
-                        height: 45,
-                        width: 45,
+                        height: 40,
+                        width: 55,
                       ),
                     ),
                   ),

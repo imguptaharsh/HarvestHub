@@ -5,7 +5,7 @@ import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
-import '../../../common/widgets/custom_widgets.dart';
+import '../../../common/widgets/custom_textBox.dart';
 import '../../../constants/global_variable.dart';
 import '../../../constants/utils.dart';
 import '../services/address_services.dart';
@@ -27,7 +27,7 @@ class _AddressScreenState extends State<AddressScreen> {
     var options = {
       "key": "rzp_test_kts0naJ8Vehrog",
       "amount": num.parse(widget.totalAmount) * 100,
-      "name": "ReWear",
+      "name": "HarvestHub",
       "description": "TOTAL AMOUNT",
       "prefill": {
         "contact": "9898989898",
@@ -177,7 +177,7 @@ class _AddressScreenState extends State<AddressScreen> {
   Widget build(BuildContext context) {
     var address = context.watch<UserProvider>().user.address;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 252, 250, 235),
+      backgroundColor: GlobalVariables.mainColor,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(55),
           child: AppBar(
@@ -222,22 +222,22 @@ class _AddressScreenState extends State<AddressScreen> {
                 key: _addressFormKey,
                 child: Column(
                   children: [
-                    CustomTextField(
+                    CustomTextField2(
                       controller: flatBuildingController,
                       hintText: 'Flat, House no, Building',
                     ),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                       controller: areaController,
                       hintText: 'Area, Street',
                     ),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                       controller: pincodeController,
                       hintText: 'Pincode',
                     ),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                       controller: cityController,
                       hintText: 'Town/City',
                     ),
@@ -280,15 +280,41 @@ class _AddressScreenState extends State<AddressScreen> {
               //   ),
               // ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              CustomButton(
-                  text: "RAZORPAY",
-                  onTap: () {
+
+              // CustomButton(
+              //     text: "RAZORPAY",
+              //     onTap: () {
+              //       payPressed(address);
+              //       openCheckout();
+              //     },
+              //     color: GlobalVariables.selectedNavBarColor),
+              SizedBox(
+                height: 45,
+                width: 170,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    // foregroundColor: Color.fromARGB(255, 24, 181, 29),
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                  ),
+                  onPressed: () {
                     payPressed(address);
                     openCheckout();
                   },
-                  color: GlobalVariables.mainColor)
+                  // ignore: prefer_const_constructors
+                  child: Text(
+                    "RAZORPAY",
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

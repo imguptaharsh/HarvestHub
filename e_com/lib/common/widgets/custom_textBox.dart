@@ -1,12 +1,10 @@
-import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField2 extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final int maxLines;
-  // final color;
-  const CustomTextField({
+  const CustomTextField2({
     Key? key,
     required this.controller,
     required this.hintText,
@@ -18,24 +16,25 @@ class CustomTextField extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: Container(
-        color: Colors.transparent,
+        // padding: ed,
+        color: Colors.white,
         child: TextFormField(
           controller: controller,
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
             ),
             border: OutlineInputBorder(
               borderSide: const BorderSide(
-                color: Colors.white,
+                color: Colors.black,
               ),
               borderRadius:
                   BorderRadius.circular(15), // Set border corner radius to 0
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(
-                color: Colors.white,
+                color: Colors.black,
               ),
               borderRadius:
                   BorderRadius.circular(15), // Set border corner radius to 0

@@ -1,3 +1,4 @@
+import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,16 +46,33 @@ class _CartProductState extends State<CartProduct> {
     return Column(
       children: [
         Container(
+          decoration: const BoxDecoration(
+              boxShadow: [
+                // ignore: prefer_const_constructors
+                BoxShadow(
+                  color: Colors.black38,
+                  spreadRadius: 2,
+                  blurRadius: 5,
+                  offset: Offset(0, 2), // changes position of shadow
+                ),
+              ],
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              )),
           margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
           child: Row(
             children: [
-              Image.network(
-                product.images[0],
-                fit: BoxFit.contain,
-                height: 135,
-                width: 135,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  product.images[0],
+                  fit: BoxFit.contain,
+                  height: 135,
+                  width: 135,
+                ),
               ),
               Column(
                 children: [
@@ -102,6 +120,9 @@ class _CartProductState extends State<CartProduct> {
             ],
           ),
         ),
+        SizedBox(
+          height: 10,
+        ),
         Container(
           margin: const EdgeInsets.all(10),
           child: Row(
@@ -121,6 +142,10 @@ class _CartProductState extends State<CartProduct> {
             ],
           ),
         ),
+        // ignore: prefer_const_constructors
+        SizedBox(
+          height: 10,
+        )
       ],
     );
   }
@@ -133,11 +158,12 @@ class _CartProductState extends State<CartProduct> {
           child: Container(
             width: 35,
             height: 32,
+            color: GlobalVariables.selectedNavBarColor,
             alignment: Alignment.center,
             child: const Icon(
               Icons.remove,
               size: 18,
-              color: Colors.red,
+              color: Colors.white,
             ),
           ),
         ),
@@ -159,13 +185,14 @@ class _CartProductState extends State<CartProduct> {
         InkWell(
           onTap: () => increaseQuantity(product),
           child: Container(
+            color: GlobalVariables.selectedNavBarColor,
             width: 35,
             height: 32,
             alignment: Alignment.center,
             child: const Icon(
               Icons.add,
               size: 18,
-              color: Colors.green,
+              color: Colors.white,
             ),
           ),
         ),
