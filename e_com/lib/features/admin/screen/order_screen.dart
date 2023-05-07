@@ -32,7 +32,7 @@ class _OrderScreenState extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
     return orders == null
-        ? const Loader()
+        ? const Center(child: CircularProgressIndicator())
         : Container(
             color: GlobalVariables.mainColor,
             padding: const EdgeInsets.all(10.0),

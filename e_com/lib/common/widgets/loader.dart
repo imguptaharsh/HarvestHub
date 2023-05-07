@@ -1,4 +1,3 @@
-import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 
 class Loader extends StatelessWidget {
@@ -6,9 +5,8 @@ class Loader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: GlobalVariables.mainColor,
-      body: Center(child: CircularProgressIndicator()),
+    return const Center(
+      child: CircularProgressIndicator(),
     );
   }
 }

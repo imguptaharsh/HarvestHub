@@ -35,16 +35,17 @@ class _OrderDetailsState extends State<OrderDetails> {
 
   // only for admin
   void changeOrderStatus(int status) {
-    adminServices.changeOrderStatus(
-      context: context,
-      status: status + 1,
-      order: widget.order,
-      onSuccess: () {
-        setState(() {
-          currentStep += 1;
-        });
-      },
-    );
+    if (currentStep < 3)
+      adminServices.changeOrderStatus(
+        context: context,
+        status: status + 1,
+        order: widget.order,
+        onSuccess: () {
+          setState(() {
+            currentStep += 1;
+          });
+        },
+      );
   }
 
   @override
@@ -257,7 +258,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                 child: Stepper(
                   currentStep: currentStep,
                   controlsBuilder: (context, details) {
-                    if (user.type == 'admin') {
+                    if (user.type == 'admin' && currentStep < 3) {
                       return CustomButton(
                         text: 'Done',
                         //onTap: () => {},
@@ -299,14 +300,12 @@ class _OrderDetailsState extends State<OrderDetails> {
                           : StepState.indexed,
                     ),
                     Step(
-                      title: const Text('Delivered'),
-                      content: const Text(
+                      title: Text('Delivered'),
+                      content: Text(
                         'Your order has been delivered and signed by you!',
                       ),
-                      isActive: currentStep >= 3,
-                      state: currentStep >= 3
-                          ? StepState.complete
-                          : StepState.indexed,
+                      state: StepState.complete,
+                      isActive: true,
                     ),
                   ],
                 ),

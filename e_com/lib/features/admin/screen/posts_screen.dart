@@ -83,7 +83,7 @@ class _PostsScreenState extends State<PostsScreen> {
                 backgroundColor: GlobalVariables.selectedNavBarColor,
                 onPressed: navigateToAddProduct,
                 tooltip: 'Add a product!',
-                foregroundColor: Colors.black,
+                foregroundColor: Colors.white,
                 child: const Icon(Icons.add)),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,
