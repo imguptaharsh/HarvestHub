@@ -38,10 +38,11 @@ class _CartScreenState extends State<CartScreen> {
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
         .toList();
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 252, 250, 235),
+        backgroundColor: GlobalVariables.mainColor,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(55),
+          preferredSize: const Size.fromHeight(60),
           child: AppBar(
+            backgroundColor: Colors.white,
             flexibleSpace: Container(
               decoration: const BoxDecoration(
                 gradient: GlobalVariables.appBarGradient,
@@ -53,27 +54,27 @@ class _CartScreenState extends State<CartScreen> {
                 Expanded(
                   child: Container(
                       height: 42,
-                      margin: const EdgeInsets.only(left: 15),
+                      margin:
+                          const EdgeInsets.only(left: 15, top: 15, right: 15),
                       child: Material(
                           borderRadius: BorderRadius.circular(15),
-                          elevation: 1,
+                          // elevation: 1,
                           child: TextFormField(
                               onFieldSubmitted: navigateToSearchScreen,
                               decoration: InputDecoration(
                                   prefixIcon: InkWell(
                                       onTap: () {},
                                       child: const Padding(
-                                        padding: EdgeInsets.only(
-                                          left: 6,
-                                        ),
+                                        padding: EdgeInsets.only(left: 6),
                                         child: Icon(Icons.search,
-                                            color: Colors.black, size: 23),
+                                            color: Colors.white, size: 23),
                                       )),
                                   filled: true,
-                                  fillColor: Colors.white,
+                                  fillColor: Color.fromARGB(255, 73, 125, 89),
                                   hintText: 'Search..',
                                   hintStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
+                                    color: Colors.white,
                                     fontSize: 17,
                                   ),
                                   contentPadding:
@@ -83,17 +84,16 @@ class _CartScreenState extends State<CartScreen> {
                                       Radius.circular(15),
                                     ),
                                     borderSide: BorderSide(
-                                      color: Colors.black38,
+                                      color: Colors.white,
                                       width: 1,
                                     ),
                                   ))))),
                 ),
-                Container(
-                    color: Colors.transparent,
-                    height: 42,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child:
-                        const Icon(Icons.mic, color: Colors.black, size: 25)),
+                // Container(
+                //     color: Colors.transparent,
+                //     height: 42,
+                //     margin: const EdgeInsets.symmetric(horizontal: 10),
+                //     child: const Icon(Icons.mic, color: Colors.black, size: 25)),
               ],
             ),
           ),
@@ -102,12 +102,25 @@ class _CartScreenState extends State<CartScreen> {
           child: Column(
             children: [
               const CartSubtotal(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomButton(
-                  text: 'Proceed to Buy (${user.cart.length} items)',
-                  onTap: () => navigateToAddress(sum),
-                  color: GlobalVariables.mainColor,
+              SizedBox(
+                height: 50,
+                width: 250,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    // foregroundColor: Color.fromARGB(255, 24, 181, 29),
+                    backgroundColor: GlobalVariables.selectedNavBarColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18)),
+                  ),
+                  onPressed: () => navigateToAddress(sum),
+                  child: Text(
+                    "Proceed to Buy (${user.cart.length} items)".toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 15),
@@ -115,7 +128,7 @@ class _CartScreenState extends State<CartScreen> {
                 color: Colors.black12.withOpacity(0.08),
                 height: 1,
               ),
-              const SizedBox(height: 5),
+              const SizedBox(height: 10),
               ListView.builder(
                 itemCount: user.cart.length,
                 shrinkWrap: true,

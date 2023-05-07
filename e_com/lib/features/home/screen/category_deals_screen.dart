@@ -264,7 +264,7 @@ class _CategoryDealScreenState extends State<CategoryDealScreen> {
                                             color: Colors.white,
                                           ),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),

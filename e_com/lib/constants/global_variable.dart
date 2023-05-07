@@ -21,25 +21,31 @@ class GlobalVariables {
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
     colors: [
-      Colors.green,
-      Colors.green,
+      Color.fromARGB(255, 229, 238, 218),
+      Color.fromARGB(255, 229, 238, 218),
     ],
   );
-
-  static const secondaryColor = Colors.green;
-  static const mainColor = Color.fromARGB(255, 239, 252, 225);
+// rgb(73, 125, 89)
+// 219, 234, 198)
+// rgb(229, 238, 218)
+// rgb(189, 210, 153)
+// rgb(69, 94, 20)
+// rgb(122, 155, 87)
+  static const secondaryColor = Color.fromARGB(255, 73, 125, 89);
+  static const mainColor = Color.fromARGB(255, 229, 238, 218);
   static const backgroundColor = Colors.white;
   static const Color greyBackgroundCOlor = Color(0xffebecee);
-  static const selectedNavBarColor = Colors.green;
+  static const selectedNavBarColor = Color.fromARGB(255, 73, 125, 89);
   static const unselectedNavBarColor = Colors.black87;
 
   // STATIC IMAGES
   static const List<String> carouselImages = [
     // 'assets/images/frontPoster.png',
-    'assets/images/p5.jpeg',
-    'assets/images/p2.jpeg',
-    'assets/images/p3.jpeg',
-    'assets/images/p4.jpeg',
+    'assets/images/B1.png',
+    'assets/images/B2.png',
+    'assets/images/B3.png',
+    'assets/images/B4.png',
+    'assets/images/B5.png',
 
     // 'https://as1.ftcdn.net/v2/jpg/03/20/68/66/1000_F_320686681_Ur6vdYQgDC9WiijiVfxlRyQffxOgfeFz.jpg',
     // 'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
@@ -60,11 +66,11 @@ class GlobalVariables {
     },
     {
       'title': 'Grains',
-      'image': 'assets/images/kid.png',
+      'image': 'assets/images/grains.png',
     },
     {
       'title': 'Herbs',
-      'image': 'assets/images/shoes.png',
+      'image': 'assets/images/herbs.png',
     },
   ];
 }

@@ -19,10 +19,19 @@ class AccountButton extends StatelessWidget {
           border: Border.all(color: Colors.white, width: 0.0),
           borderRadius: BorderRadius.circular(50),
           color: Colors.white,
+          boxShadow: const [
+            // ignore: prefer_const_constructors
+            BoxShadow(
+              color: Colors.black38,
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
         child: OutlinedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
+            backgroundColor: Color.fromARGB(255, 87, 149, 105),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
@@ -31,7 +40,7 @@ class AccountButton extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.w600,
             ),
           ),

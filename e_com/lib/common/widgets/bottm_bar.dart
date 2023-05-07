@@ -35,10 +35,11 @@ class _BottomBarState extends State<BottomBar> {
   }
 
   int _selectIndex = 0;
+  // ignore: non_constant_identifier_names
   static final List<Widget> _Navsreens = <Widget>[
-    HomeScreen(),
-    AccountScreen(),
-    CartScreen(),
+    const HomeScreen(),
+    const AccountScreen(),
+    const CartScreen(),
   ];
 
   @override
@@ -46,7 +47,7 @@ class _BottomBarState extends State<BottomBar> {
     final userCartlen = context.watch<UserProvider>().user.cart.length;
     return Scaffold(
       bottomNavigationBar: GNav(
-        backgroundColor: Colors.white,
+        backgroundColor: GlobalVariables.mainColor,
         // ignore: prefer_const_literals_to_create_immutables
         tabs: [
           // ignore: prefer_const_constructors

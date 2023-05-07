@@ -12,8 +12,18 @@ class CarouselImage extends StatelessWidget {
         return Builder(
             builder: (BuildContext context) => Container(
                   clipBehavior: Clip.antiAliasWithSaveLayer,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      // ignore: prefer_const_constructors
+                      BoxShadow(
+                        color: Colors.black26,
+                        spreadRadius: 1,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
                   child: Card(
                     child: Image.asset(
                       i,
@@ -26,6 +36,7 @@ class CarouselImage extends StatelessWidget {
       options: CarouselOptions(
         viewportFraction: 1,
         height: 200,
+        autoPlay: true,
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:e_com/common/widgets/loader.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
+import '../../cart/screen/cart_screen.dart.dart';
 import '../../product_details/screen/product_details_screen.dart';
 import '../services/home_services.dart';
 
@@ -50,11 +51,11 @@ class _DealOfDayState extends State<DealOfDay> {
                       padding:
                           const EdgeInsets.only(left: 40, top: 20, bottom: 10),
                       child: const Text(
-                        'Green Pick of the Day',
+                        'Top Rated Product',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green,
+                          // color: Colors.green,
                         ),
                       ),
                     ),
@@ -63,10 +64,21 @@ class _DealOfDayState extends State<DealOfDay> {
                       child: Container(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            // ignore: prefer_const_constructors
+                            BoxShadow(
+                              color: Colors.black38,
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
                         child: Image.network(
                           product!.images[0],
-                          height: 265,
+                          height: 200,
                           fit: BoxFit.fitHeight,
                         ),
                       ),
@@ -87,15 +99,15 @@ class _DealOfDayState extends State<DealOfDay> {
                             text: TextSpan(
                               text: 'Deal Price:  ',
                               style: const TextStyle(
-                                fontSize: 22,
+                                fontSize: 18,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                               ),
                               children: [
                                 TextSpan(
-                                  text: '₹${product!.price}',
+                                  text: '${product!.price} ₹',
                                   style: const TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 20,
                                     color: Colors.red,
                                     fontWeight: FontWeight.w800,
                                   ),
@@ -104,6 +116,27 @@ class _DealOfDayState extends State<DealOfDay> {
                             ),
                           ),
                         ),
+                        GestureDetector(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const CartScreen(),
+                            ),
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Container(
+                              // padding: const EdgeInsets.only(right: 10),
+                              height: 30,
+                              decoration: BoxDecoration(
+                                  color: Color(0xff3dab85),
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Image.asset(
+                                'assets/images/cart.png',
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                     const SizedBox(

@@ -13,9 +13,9 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: GlobalVariables.mainColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(80),
         child: AppBar(
-          elevation: 15,
+          // elevation: 15,s
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: GlobalVariables.appBarGradient,
@@ -25,27 +25,35 @@ class AccountScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  alignment: Alignment.topLeft,
+                  // padding: EdgeInsets.only(right: 100),
+                  alignment: Alignment.topRight,
                   child: Image.asset(
-                    'assets/images/rewear3.png',
+                    'assets/images/hhlogo.png',
                     // fit: BoxFit.fitHeight,
                     width: 120,
-                    height: 40,
+                    height: 150,
                     // color: Colors.black,
                   )),
-              Container(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  child: Row(
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(right: 15),
-                        child: Icon(Icons.notifications_outlined),
-                      ),
-                      Icon(Icons.search),
-                    ],
-                  ))
+              const Text(
+                "HarvestHub",
+                style: TextStyle(
+                    fontSize: 24,
+                    color: GlobalVariables.selectedNavBarColor,
+                    fontWeight: FontWeight.bold),
+              ),
             ],
           ),
+          // Container(
+          //     padding: const EdgeInsets.only(left: 15, right: 15),
+          //     child: Row(
+          //       children: const [
+          //         Padding(
+          //           padding: EdgeInsets.only(right: 15),
+          //           child: Icon(Icons.notifications_outlined),
+          //         ),
+          //         Icon(Icons.search),
+          //       ],
+          //     ))
         ),
       ),
       body: Container(

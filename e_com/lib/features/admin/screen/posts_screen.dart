@@ -80,7 +80,7 @@ class _PostsScreenState extends State<PostsScreen> {
                 }),
             floatingActionButton: FloatingActionButton(
                 focusColor: Colors.black,
-                backgroundColor: const Color.fromARGB(255, 153, 246, 87),
+                backgroundColor: GlobalVariables.selectedNavBarColor,
                 onPressed: navigateToAddProduct,
                 tooltip: 'Add a product!',
                 foregroundColor: Colors.black,

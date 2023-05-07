@@ -1,3 +1,4 @@
+import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/loader.dart';
@@ -32,28 +33,32 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     return orders == null
         ? const Loader()
-        : GridView.builder(
-            itemCount: orders!.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            itemBuilder: (context, index) {
-              final orderData = orders![index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    OrderDetails.routeName,
-                    arguments: orderData,
-                  );
-                },
-                child: SizedBox(
-                  height: 140,
-                  child: SingleProduct(
-                    image: orderData.products[0].images[0],
+        : Container(
+            color: GlobalVariables.mainColor,
+            padding: const EdgeInsets.all(10.0),
+            child: GridView.builder(
+              itemCount: orders!.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              itemBuilder: (context, index) {
+                final orderData = orders![index];
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      OrderDetails.routeName,
+                      arguments: orderData,
+                    );
+                  },
+                  child: SizedBox(
+                    height: 120,
+                    child: SingleProduct(
+                      image: orderData.products[0].images[0],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           );
   }
 }

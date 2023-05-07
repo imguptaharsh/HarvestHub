@@ -1,3 +1,4 @@
+import 'package:e_com/constants/global_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,7 @@ class BelowAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Container(
+        color: GlobalVariables.mainColor,
         // decoration: const BoxDecoration(
         //   gradient: GlobalVariables.appBarGradient,
         // ),
@@ -22,9 +24,20 @@ class BelowAppBar extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: CircleAvatar(
+                  Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          spreadRadius: 3.0,
+                          blurRadius: 10,
+                          offset: Offset(0, 3), // Offset of the shadow
+                        ),
+                      ],
+                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: const CircleAvatar(
                       radius: 50.0,
                       backgroundImage: NetworkImage(
                           "https://www.w3schools.com/howto/img_avatar.png"),

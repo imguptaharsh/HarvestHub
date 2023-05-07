@@ -8,6 +8,7 @@ import 'package:e_com/features/admin/services/admin_services.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/custom_button.dart';
+import '../../../common/widgets/custom_textBox.dart';
 import '../../../constants/global_variable.dart';
 
 class AddProduct extends StatefulWidget {
@@ -153,16 +154,16 @@ class _AddProductState extends State<AddProduct> {
                         controller: productNameController,
                         hintText: "Product Name"),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                       controller: descriptionController,
                       hintText: "Description",
                       maxLines: 7,
                     ),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                         controller: priceController, hintText: "Price"),
                     const SizedBox(height: 10),
-                    CustomTextField(
+                    CustomTextField2(
                         controller: quantityController, hintText: "Quantity"),
                     SizedBox(
                       width: double.infinity,
