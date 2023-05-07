@@ -66,16 +66,21 @@ class _AuthScreenState extends State<AuthScreen> {
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 300),
+            padding: const EdgeInsets.symmetric(vertical: 100),
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      // child: Image.asset('assets/images/frontlogo.png'),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'assets/images/mainlogo.png',
+                        width: 200,
+                        height: 200,
+                      ),
                     ),
                     const SizedBox(
                       height: 10,
