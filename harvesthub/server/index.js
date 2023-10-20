@@ -2,16 +2,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const adminRouter = require("./routes/admin");
+const dotenv = require("dotenv");
 // IMPORTS FROM OTHER FILES
 const authRouter = require("./routes/auth");
 const productRouter = require("./routes/product");
 const userRouter = require("./routes/user");
 
+// Config
+dotenv.config();
 
 // Init   
-const PORT=3000;
+const PORT=process.env.PORT || 5000;
 const app=express(); 
-const db= "mongodb+srv://guptaharsh:hkg220@cluster0.rwepirz.mongodb.net/?retryWrites=true&w=majority";
+const db=process.env.MONGODB_URI;
 // midleware
 // Client -> middlware -> Server -> Client
 app.use(express.json());
