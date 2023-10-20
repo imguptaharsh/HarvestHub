@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-String uri = 'http://10.0.9.137:3000';
-// String uri = 'https://harvesthub-imguptaharsh.onrender.com';
+// String uri = 'http://10.0.9.137:3000';
+String uri = 'https://harvesthub-imguptaharsh.onrender.com';
 
 // 192.168.29.31
 // 10.0.9.227

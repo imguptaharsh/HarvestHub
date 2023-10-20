@@ -12,9 +12,9 @@ const userRouter = require("./routes/user");
 dotenv.config();
 
 // Init   
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 3001;
 const app=express(); 
-const db=process.env.MONGODB_URI;
+const db="mongodb+srv://guptaharsh:hkg220@cluster0.rwepirz.mongodb.net/?retryWrites=true&w=majority";
 // midleware
 // Client -> middlware -> Server -> Client
 app.use(express.json());
