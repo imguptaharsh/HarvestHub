@@ -21,7 +21,7 @@ To get started with HarvestHub, follow these simple steps:
 
 **Step 1: Download the HarvestHub Application**
 
-Download the HarvestHub application from a trusted source by clicking [here](#).
+Download the HarvestHub application from a trusted source by clicking [here](https://drive.google.com/file/d/1MkyXdTbp3lGJppfZfLAioh786Vf8DCSx/view).
 
 **Step 2: Enable Unknown Sources**
 
@@ -55,4 +55,4 @@ If you encounter any issues during installation or while using the app, please c
 
 ## Feedback and Support
 
-We value your feedback and are here to assist you. If you encounter any issues, have suggestions, or need assistance, please don't hesitate to contact our dedicated support team at [support@harvesthub.com]. We are committed to making your experience with HarvestHub exceptional.
+We value your feedback and are here to assist you. If you encounter any issues, have suggestions, or need assistance, please don't hesitate to contact us at [imguptaharsh25@gmail.com]. We are committed to making your experience with HarvestHub exceptional.
