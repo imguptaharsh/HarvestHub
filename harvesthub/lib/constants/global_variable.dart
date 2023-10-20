@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 String uri = 'http://10.0.9.137:3000';
+// String uri = 'https://harvesthub-imguptaharsh.onrender.com';
 
 // 192.168.29.31
 // 10.0.9.227
 class GlobalVariables {
-  var kTextColor = const Color(0xFF535353);
+  var kTextColor = Color.fromARGB(255, 148, 99, 99);
   var kTextLightColor = const Color(0xFFACACAC);
   var kDefaultPaddin = 20.0;
   // COLORS
